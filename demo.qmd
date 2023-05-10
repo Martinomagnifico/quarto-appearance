@@ -1,0 +1,325 @@
+---
+title: "Appearance"
+subtitle: "For Reveal.js and Quarto"
+format:
+  revealjs:
+    code-overflow: wrap
+    code-line-numbers: false
+    title-slide-attributes:
+      data-autoappear: '{"h1":["animate__flipInX, slow"],".subtitle":["animate__flipInX, slow","700ms"]}'
+    center: true
+    theme: dark
+    navigation-mode: vertical
+    transition: slide
+    background-transition: fade
+    controls-layout: bottom-right
+    chalkboard: false
+    menu: false
+    css: style.css
+    section-divs: false
+    link-external-newwindow: true
+    appearance:
+      autoappear: true
+      autoelements: '{"ul li": "animate__fadeInLeft"}'
+      appearparents: false
+
+revealjs-plugins:
+  - appearance
+
+---
+
+# Why?
+
+##
+In Powerpoint you can make slides with items that appear automatically and sequentially with effects. Appearance is a plugin for Reveal.js that does the same.
+
+Appearance is easy to set up. It uses [Animate.css](https://animate.style) by Daniel Eden for the animations, with some changes to allow for a non-animated state.
+
+
+# Examples
+Let's check out what Appearance does:
+
+
+
+## Let text appear
+
+* [Add it to any text element.]{.animate__bounceInLeft data-appear-parent="true"}
+* [Like list items, or headers.]{.animate__bounceInLeft data-appear-parent="true"}
+* [It adds some impact.]{.animate__bounceInLeft data-appear-parent="true" }
+
+
+## Let images appear
+
+::: {.row}
+![](img/1.jpg){.animate__flipInX}
+![](img/2.jpg){.animate__flipInX}
+![](img/3.jpg){.animate__flipInX}
+![](img/4.jpg){.animate__flipInX}
+![](img/5.jpg){.animate__flipInX}
+:::
+
+## Inside fragments
+
+Like this [(click next)]{.animate__fadeInDown .faster}:
+
+::: {.row .fragment}
+![](img/1.jpg){.animate__fadeInDown}
+![](img/2.jpg){.animate__fadeInDown}
+![](img/3.jpg){.animate__fadeInDown}
+![](img/4.jpg){.animate__fadeInDown}
+![](img/5.jpg){.animate__fadeInDown}
+:::
+
+
+## Animate.css animations
+
+Appearance supports the standard entrance/in animations that Animate.css offers. Some examples:
+
+* [.animate__backInDown]{.animate__backInDown data-appear-parent="true"}
+* [.animate__bounceInDown]{.animate__bounceInDown data-appear-parent="true" data-delay="1000"}
+* [.animate__fadeInLeft]{.animate__fadeInLeft data-appear-parent="true" data-delay="1000"}
+* [.animate__flipInX]{.animate__flipInX data-appear-parent="true" data-delay="1000"}
+* [.animate__rotateIn]{.animate__rotateIn data-appear-parent="true" data-delay="1000"}
+* [.animate__zoomInDown]{.animate__zoomInDown data-appear-parent="true" data-delay="1000"}
+* [.animate__jackInTheBox]{.animate__jackInTheBox data-appear-parent="true" data-delay="1000"}
+
+## Additional animations
+
+* [.animate__skidLeft]{.animate__skidLeft data-appear-parent="true"}
+* [.animate__skidLeftBig]{.animate__skidLeftBig data-appear-parent="true" data-delay="1000"}
+* [.animate__skidRight]{.animate__skidRight data-appear-parent="true" data-delay="1000"}
+* [.animate__skidRightBig]{.animate__skidRightBig data-appear-parent="true" data-delay="1000"}
+* [.animate__shrinkIn]{.animate__shrinkIn data-appear-parent="true" data-delay="1000"}
+* [.animate__shrinkInBlur]{.animate__shrinkInBlur data-appear-parent="true" data-delay="1000"}
+
+
+
+
+# Setup
+
+## Basics
+
+There are really only three steps:
+
+1. [Install Appearance]{.animate__fadeInLeft data-appear-parent="true"}
+2. [Edit the markup to add animation classes]{.animate__fadeInLeft data-appear-parent="true"}
+2. [Enjoy the animations]{.animate__fadeInLeft data-appear-parent="true"}
+
+## Installation
+The following command installs the plugin for use with Quarto:
+
+``` js
+quarto add martinomagnifico/quarto-appearance
+```
+<br>
+Now refer to the plugin in the YAML:
+
+``` yaml
+format:
+    revealjs:
+      //...
+revealjs-plugins:
+    - appearance
+```
+
+
+## Markup
+Add an animation class to the elements that you would like to have animated when the slide appears:
+
+<br>
+
+``` markdown
+![](img/1.jpg){.animate__fadeInDown}
+![](img/2.jpg){.animate__fadeInDown}
+```
+
+This is the Quarto way of adding attributes. Check the [regular demo](https://github.com/Martinomagnifico/reveal.js-appearance) to see how you do this in HTML. 
+
+To simplify it *in any markup*, you can use the [autoappear](#/autoappear) option.
+
+## Quarto and list items
+
+Quarto will wrap the content of a list item in a span if you try to add attibutes to it. *The bulletpoint or list number will then not be animated.* Appearance can fix this:
+
+::: {.row}
+::: {style="width: 50%; text-align: center; font-size: smaller"}
+1. [This is a list item]{.animate__fadeInLeft}
+2. [This is a list item]{.animate__fadeInLeft}
+:::
+
+::: {style="width: 50%; font-size: smaller"}
+1. [This is a list item]{.animate__fadeInLeft data-appear-parent="true"}
+2. [This is a list item]{.animate__fadeInLeft data-appear-parent="true"}
+:::
+:::
+
+Add `data-appear-parent="true"` to the list item.
+
+```markdown
+1. [This is a list item]{.animate__fadeInLeft data-appear-parent="true"}
+2. [This is a list item]{.animate__fadeInLeft data-appear-parent="true"}
+```
+
+or globally like this:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    appearance:
+      appearparents: true
+```
+
+
+# Now change it
+You can change the delay, speed and start of animations easily:
+
+## Change the delay
+
+Use `data-delay="*"` on each element, where the wildcard is the delay in microseconds from the appearance of the previous element.
+
+::: {.row}
+![](img/1.jpg){.animate__fadeInDown data-delay="0"}
+![](img/2.jpg){.animate__fadeInDown data-delay="200"}
+![](img/3.jpg){.animate__fadeInDown data-delay="160"}
+![](img/4.jpg){.animate__fadeInDown data-delay="120"}
+![](img/5.jpg){.animate__fadeInDown data-delay="80"}
+:::
+
+```markdown
+![](img/1.jpg){.animate__fadeInDown data-delay="0"}
+![](img/2.jpg){.animate__fadeInDown data-delay="200"}
+![](img/3.jpg){.animate__fadeInDown data-delay="160"}
+![](img/4.jpg){.animate__fadeInDown data-delay="120"}
+![](img/5.jpg){.animate__fadeInDown data-delay="80"}
+```
+
+`data-delay` is automatically converted to CSS animation delay.
+
+
+## Change the animation speed
+
+Use the speed classes from Animate.css to change the speed of the animation:
+
+::: {.row}
+::: {.col}
+slower ![](img/1.jpg){.animate__bounceIn .animate__slower}
+:::
+::: {.col}
+slow ![](img/2.jpg){.animate__bounceIn .animate__slow}
+:::
+::: {.col}
+&nbsp; ![](img/3.jpg){.animate__bounceIn}
+:::
+::: {.col}
+fast ![](img/4.jpg){.animate__bounceIn .animate__fast}
+:::
+::: {.col}
+faster ![](img/5.jpg){.animate__bounceIn .animate__faster}
+:::
+:::
+
+
+```markdown
+![](img/1.jpg){.animate__bounceIn .animate__slower}
+![](img/2.jpg){.animate__bounceIn .animate__slow}
+![](img/3.jpg){.animate__bounceIn}
+![](img/4.jpg){.animate__bounceIn .animate__fast}
+![](img/5.jpg){.animate__bounceIn .animate__faster}
+```
+
+
+## Change when appearance starts {auto-animate=true}
+
+## Change when appearance starts {auto-animate=true data-appearevent="autoanimate"}
+
+You can use any of the following events:
+
+* [slidetransitionend (default, after the transition)]{.animate__fadeInLeft data-appear-parent="true"}
+* [slidechanged (with the transition)]{.animate__fadeInLeft data-appear-parent="true"}
+* [auto (with transition, on autoanimate slides)]{.animate__fadeInLeft data-appear-parent="true"}
+
+This can also be set per-slide with data-attributes.
+
+
+
+# Autoappear
+You can simplify the addition of animation classes:
+
+
+##
+Sometimes (for example with Markdown), adding classes to elements is a chore. 
+
+Appearance can automatically add animation classes to specific elements (tags or other selectors) in the presentation (with the option `autoappear`) or per slide (with `data-autoappear`).
+
+
+## Global auto-appear mode
+* This is list item 1
+* This is list item 2
+
+``` yaml
+format:
+  revealjs:
+    ...
+    appearance:
+      autoappear: true
+      autoelements: '{"ul li": "animate__fadeInLeft"}'
+```
+
+```markdown
+## Global auto-appear mode
+* This is list item 1
+* This is list item 2
+```
+
+
+
+## Local auto-appear {data-autoappear=true}
+* This is list item 1
+* This is list item 2
+
+``` yaml
+format:
+  revealjs:
+    ...
+    appearance:
+      autoappear: false
+      autoelements: '{"ul li": "animate__fadeInLeft"}'
+```
+
+```markdown
+## Local auto-appear {data-autoappear=true}
+* This is list item 1
+* This is list item 2
+```
+
+
+## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}
+
+
+
+You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class as a string or an array with animations class, optional speed class and delay.
+
+* This is list item 1
+* This is list item 2
+
+```markdown
+## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}
+
+* This is list item 1
+* This is list item 2
+```
+
+
+# More demos
+
+For more demos go to the [Appearance plugin](https://github.com/Martinomagnifico/reveal.js-appearance) for Reveal.js. 
+Not all of the options in the regular plugin are available in the Quarto plugin.
+
+
+# Credits
+
+* [Hakim El Hattab for [Reveal.js](https://revealjs.com)]{.animate__skidLeftBig data-appear-parent="true"}
+* [Daniel Eden for [Animate.css](https://animate.style)]{.animate__skidLeftBig data-appear-parent="true"}
+* [David Marby &amp; Nijiko Yonskai for [picsum.photos](https://picsum.photos)]{.animate__skidLeftBig data-appear-parent="true"}
+* [Photography by [Michael Baird](https://unsplash.com/photos/6WLGMivmV00), [Michael Quinn](https://unsplash.com/photos/scwYrU5hCSM), [Craig Garner](https://unsplash.com/photos/YoadQb46v6k), [Grzegorz Mleczek](https://unsplash.com/photos/RlYsCMbF6EI) and [Fabrice Villard](https://unsplash.com/photos/QrRSm-QbjW0)]{.animate__skidLeftBig data-appear-parent="true"}

@@ -1,0 +1,19 @@
+title: Appearance
+author:  Martijn De Jongh (Martino)
+version: 1.2.0
+quarto-required: ">=1.2.198"
+contributes:
+  revealjs-plugins:
+    -
+      name: Appearance
+      script: appearance.js
+      stylesheet: appearance.css
+      config:
+        appearance:
+          hideagain: true
+          delay: 300
+          debug: false
+          appearevent: 'slidetransitionend'
+          autoappear: false
+          autoelements: false
+          appearparents: false
