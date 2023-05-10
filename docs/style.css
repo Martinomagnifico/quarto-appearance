@@ -1,0 +1,145 @@
+:root {
+  --r-heading-text-transform: none ;
+	--r-background-color: #1a1626;
+}
+.center {
+	text-align: center
+}
+
+.slides {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+
+.reveal.ready .slides {
+  opacity: 1;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.reveal ul ul {
+  margin-top: 1rem;
+}
+
+.small {
+  font-size: 66%;
+}
+
+.reveal p {
+  font-size: 0.75em;
+}
+
+.smallitalic {
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.reveal pre {
+  width: 100%;
+  margin: 0 auto;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: rgba(180, 180, 180, 0.5);
+  background: #272822;
+  color: #ddd;
+  font-size: 0.5em;
+  border-radius: 6px;
+}
+
+.reveal .sourceCode pre code, .reveal .sourceCode pre code {
+  overflow: hidden !important;
+  white-space: pre-wrap !important;
+}
+
+.reveal p code, .reveal p kbd, .reveal ul code {
+	background: rgba(180, 180, 180, 0.2);
+	font-size: 0.8em;
+	padding: 5px 10px;
+	border-radius: 4px;
+	color: inherit;
+  }
+  
+p kbd, ul kbd {
+  font-family: monospace;
+}
+
+section ul li + li {
+  margin-top: 1rem;
+}
+.row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  grid-gap: 30px;
+}
+
+
+.row > p, .row > ul, .row > .col {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 30px;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+.row > .col {
+  display: flex;
+}
+
+.row img {
+  border: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.centerblock {
+  height: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+ol.twocol {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  counter-reset: item;
+  width: 80%;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+ol.twocol li {
+  counter-increment: item;
+  padding-left: 1.7em;
+}
+ol.twocol li:before {
+  content: counter(item) ".";
+  margin-left: -1.7em;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 1.2em;
+  text-align: right;
+}
+
+.reveal p.subtitle {
+  font-size: var(--r-heading3-size);
+  font-weight: 600;
+}
