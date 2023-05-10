@@ -218,12 +218,12 @@ There are a few options that you can change in the YAML options. The values belo
 format:
   revealjs:
     appearance:
-	    hideagain: true
-	    delay: 300
-	    appearevent: 'slidetransitionend'
-	    autoappear: false
-	    autoelements: false
-	    appearparents: false
+      hideagain: true
+      delay: 300
+      appearevent: 'slidetransitionend'
+      autoappear: false
+      autoelements: false
+      appearparents: false
 revealjs-plugins:
   - appearance
 ```
