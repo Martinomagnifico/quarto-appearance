@@ -135,7 +135,7 @@ Add an animation class to the elements that you would like to have animated when
 
 This is the Quarto way of adding attributes. Check the [regular demo](https://github.com/Martinomagnifico/reveal.js-appearance) to see how you do this in HTML. 
 
-To simplify it *in any markup*, you can use the [autoappear](#/autoappear) option.
+To simplify it *in any markup*, you can use the [autoappear](#autoappear) option.
 
 ## Quarto and list items
 
