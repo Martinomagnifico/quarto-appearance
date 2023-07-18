@@ -305,11 +305,15 @@ span.animate__animated, span.animated {
           animation-duration: calc(var(--animate-duration) * 3);
 }
 
-.print-pdf {
+/* don't change the default colours */
+/*.print-pdf {
   color: black;
-}
-.print-pdf .animated, .print-pdf .animate__animated {
-  visibility: visible;
-  -webkit-animation: none;
-          animation: none;
+}*/
+
+/* fix the bug to show all contents properly for PDF printing */
+.print-pdf .animated, 
+.print-pdf .animate__animated {
+  visibility: visible !important;
+  -webkit-animation: none !important;
+  animation: none !important;
 }
