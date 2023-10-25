@@ -6,7 +6,7 @@ format:
     code-overflow: wrap
     code-line-numbers: false
     title-slide-attributes:
-      data-autoappear: '{"h1":["animate__flipInX, slow"],".subtitle":["animate__flipInX, slow","700ms"]}'
+      data-autoappear: '{"h1":["animate__flipInX, slow"],".subtitle":{"animation":"animate__fadeInDown", "speed":"faster", "split":"letters", "delay":"40", "container-delay":"1000"}}'
     center: true
     theme: dark
     navigation-mode: vertical
@@ -20,7 +20,7 @@ format:
     link-external-newwindow: true
     appearance:
       autoappear: true
-      autoelements: '{"ul li": "animate__fadeInLeft"}'
+      autoelements: {"ul li": "animate__fadeInLeft"}
       appearparents: false
 
 revealjs-plugins:
@@ -48,27 +48,34 @@ Let's check out what Appearance does:
 * [It adds some impact.]{.animate__bounceInLeft data-appear-parent="true" }
 
 
+##
+### Let lines appear per word {.animate__fadeInDown data-split="words" data-delay="200"}
+### [or...]{.animate__fadeInDown data-delay="600"} [per character]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}
+
+
 ## Let images appear
 
 ::: {.row}
-![](img/1.jpg){.animate__flipInX}
-![](img/2.jpg){.animate__flipInX}
-![](img/3.jpg){.animate__flipInX}
-![](img/4.jpg){.animate__flipInX}
-![](img/5.jpg){.animate__flipInX}
+![](img/1.jpg){.demoimg .animate__flipInX}
+![](img/2.jpg){.demoimg .animate__flipInX}
+![](img/3.jpg){.demoimg .animate__flipInX}
+![](img/4.jpg){.demoimg .animate__flipInX}
+![](img/5.jpg){.demoimg .animate__flipInX}
 :::
 
-## Inside fragments
+## Use with fragments
 
-Like this [(click next)]{.animate__fadeInDown .faster}:
+Inside fragments like this [(click next)]{.animate__fadeInDown .faster}:
 
 ::: {.row .fragment}
-![](img/1.jpg){.animate__fadeInDown}
-![](img/2.jpg){.animate__fadeInDown}
-![](img/3.jpg){.animate__fadeInDown}
-![](img/4.jpg){.animate__fadeInDown}
-![](img/5.jpg){.animate__fadeInDown}
+![](img/1.jpg){.demoimg .animate__fadeInDown}
+![](img/2.jpg){.demoimg .animate__fadeInDown}
+![](img/3.jpg){.demoimg .animate__fadeInDown}
+![](img/4.jpg){.demoimg .animate__fadeInDown}
+![](img/5.jpg){.demoimg .animate__fadeInDown}
 :::
+
+[Or as a fragment itself.]{.fragment .animate__fadeInDown}
 
 
 ## Animate.css animations
@@ -90,10 +97,9 @@ Appearance supports the standard entrance/in animations that Animate.css offers.
 * [.animate__skidRight]{.animate__skidRight data-appear-parent="true" data-delay="1000"}
 * [.animate__skidRightBig]{.animate__skidRightBig data-appear-parent="true" data-delay="1000"}
 * [.animate__shrinkIn]{.animate__shrinkIn data-appear-parent="true" data-delay="1000"}
-* [.animate__shrinkInBlur]{.animate__shrinkInBlur data-appear-parent="true" data-delay="1000"}
+* [.animate__shrinkInBig]{.animate__shrinkInBig data-appear-parent="true" data-delay="1000"}
 
-
-
+[Note: The shrinkInBlur animation was removed from Appearance, due to performance issues. For backwards compatibility, any element that used it will now use the `shrinkIn` animation instead.]{.small}
 
 # Setup
 
@@ -123,7 +129,15 @@ revealjs-plugins:
 ```
 
 
-## Markup
+
+## Markup (auto)
+For _automatic markup_, you can use the [`autoappear`](#autoappear) option.
+
+For _manual markup_, continue to the next slide.
+
+
+
+## Markup (manual)
 Add an animation class to the elements that you would like to have animated when the slide appears:
 
 <br>
@@ -136,6 +150,17 @@ Add an animation class to the elements that you would like to have animated when
 This is the Quarto way of adding attributes. Check the [regular demo](https://github.com/Martinomagnifico/reveal.js-appearance) to see how you do this in HTML. 
 
 To simplify it *in any markup*, you can use the [autoappear](#autoappear) option.
+
+
+## Markup (manual) for words or letters
+To nicely animate the words in a heading, or the letters of a word, add an animation class to it, and add a data-attribute for the kind of split you want:
+
+``` markdown
+### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into letters]{.animate__fadeInDown data-split="letters"}
+```
+
+
 
 ## Quarto and list items
 
@@ -179,10 +204,10 @@ You can change the delay, speed and start of animations easily:
 Use `data-delay="*"` on each element, where the wildcard is the delay in microseconds from the appearance of the previous element.
 
 ::: {.row}
-![](img/1.jpg){.animate__fadeInDown data-delay="0"}
-![](img/2.jpg){.animate__fadeInDown data-delay="200"}
-![](img/3.jpg){.animate__fadeInDown data-delay="160"}
-![](img/4.jpg){.animate__fadeInDown data-delay="120"}
+![](img/1.jpg){.demoimg .animate__fadeInDown data-delay="0"}
+![](img/2.jpg){.demoimg .animate__fadeInDown data-delay="200"}
+![](img/3.jpg){.demoimg .animate__fadeInDown data-delay="160"}
+![](img/4.jpg){.demoimg .animate__fadeInDown data-delay="120"}
 ![](img/5.jpg){.animate__fadeInDown data-delay="80"}
 :::
 
@@ -203,19 +228,19 @@ Use the speed classes from Animate.css to change the speed of the animation:
 
 ::: {.row}
 ::: {.col}
-slower ![](img/1.jpg){.animate__bounceIn .animate__slower}
+slower ![](img/1.jpg){.demoimg .animate__bounceIn .animate__slower}
 :::
 ::: {.col}
-slow ![](img/2.jpg){.animate__bounceIn .animate__slow}
+slow ![](img/2.jpg){.demoimg .animate__bounceIn .animate__slow}
 :::
 ::: {.col}
-&nbsp; ![](img/3.jpg){.animate__bounceIn}
+&nbsp; ![](img/3.jpg){.demoimg .animate__bounceIn}
 :::
 ::: {.col}
-fast ![](img/4.jpg){.animate__bounceIn .animate__fast}
+fast ![](img/4.jpg){.demoimg .animate__bounceIn .animate__fast}
 :::
 ::: {.col}
-faster ![](img/5.jpg){.animate__bounceIn .animate__faster}
+faster ![](img/5.jpg){.demoimg .animate__bounceIn .animate__faster}
 :::
 :::
 
@@ -227,6 +252,21 @@ faster ![](img/5.jpg){.animate__bounceIn .animate__faster}
 ![](img/4.jpg){.animate__bounceIn .animate__fast}
 ![](img/5.jpg){.animate__bounceIn .animate__faster}
 ```
+
+
+## Change the settings for words or letters
+For words and letters, just set the speed and delay as described above. The smaller parts will inherit these settings. Set a `data-container-delay="*"` for a different delay for the container, compared to the standard `delay = 300` from the options.
+
+### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}
+
+<br>
+
+``` markdown
+### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}
+```
+
 
 
 ## Change when appearance starts {auto-animate=true}
@@ -272,9 +312,12 @@ format:
 * This is list item 2
 ```
 
+You can use a simple JSON object, or more elaborate like this: `'{"ul li": {"animation":"animate__fadeInLeft", "speed":"slow", "delay":"100"}}'`.
 
 
 ## Local auto-appear {data-autoappear=true}
+This will use the JSON object from the global autoelements option, even if autoappear is false.
+
 * This is list item 1
 * This is list item 2
 
@@ -294,20 +337,31 @@ format:
 ```
 
 
-## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}
+## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}
 
 
-
-You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class as a string or an array with animations class, optional speed class and delay.
+You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class(es) as a string or an object with animations class(es), optional speed and optional delay.
 
 * This is list item 1
 * This is list item 2
 
 ```markdown
-## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}
+## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}
 
 * This is list item 1
 * This is list item 2
+```
+
+## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}
+
+And you can do the same for any animations that you would like to have on lines and words.
+
+### Appearance
+
+```markdown
+## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}
+
+### Appearance
 ```
 
 

@@ -12,6 +12,8 @@ In Powerpoint you can make slides with items that appear automatically with effe
 
 The animations will start automatically after or at each slide or fragment change if the HTML is set up to use Appearance.
 
+Version 1.3.0 adds an option to animate the words in a sentence, or the letters in a word.
+
 
 ## Basics
 
@@ -39,10 +41,7 @@ The original plugin is also published to npm. To use Appearance in a normal Reve
 ## Setup
 
 ### Styling
-Since version 1.1.2, the styling of Appearance is automatically inserted, either loaded through NPM or from the plugin folder. Two files are inserted: The first one is Animate.css by Daniel Eden for the basic animations, we add it through a CDN. The second file adds to the first stylesheet to allow for a non-animated state.
-
-If you want to change the Appearance style, you can simply make your own style and use that stylesheet instead. Linking to your custom styles can be managed through the `csspath` option of Appearance.
-
+The styling of Appearance is automatically inserted, either loaded through NPM or from the plugin folder. Two files are inserted: The first one is Animate.css by Daniel Eden for the basic animations, we add it through a CDN. The second file adds to the first stylesheet to allow for a non-animated state.
 
 
 ### Markup
@@ -82,6 +81,15 @@ format:
       appearparents: true
 ```
 
+#### Animating words and letters
+
+To nicely animate the words in a heading, or the letters of a word, add an animation class to it, and add a data-attribute for the kind of split you want: 
+
+``` markdown
+### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into letters]{.animate__fadeInDown data-split="letters"}
+```
+
 
 ## Now change it
 
@@ -108,6 +116,18 @@ You can change the speed of each animation, using the tempo classes from Animate
 ![](img/4.jpg){.animate__bounceIn .animate__fast}
 ![](img/5.jpg){.animate__bounceIn .animate__faster}
 ```
+
+### Changing word and letter animations
+
+For words and letters, the same techniques can be used. 
+
+Note that the data-delay also gets copied to the smaller elements in it, which means that there is no more 'whole sentence' or 'whole word' to delay. By default, the whole element then gets the delay (depending on if it is following other animations) as defined in the `delay` option in the Configuration, but it can be overriden by an optional `data-container-delay`. 
+
+``` markdown
+### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}
+```
+
 
 ### Changing the 'appearevent'
 When you navigate from slide to slide, you can set transition effects in Reveal. These effects take some time. That's why, by default, Appearance only starts when the slide transition has ended. 
@@ -146,15 +166,22 @@ format:
     ...
     appearance:
       autoappear: true
-      autoelements: '{"ul li": "animate__fadeInLeft"}'
+      autoelements: {"ul li": "animate__fadeInLeft"}
 ```
 
-You can add any selector and animation class to this object.
+You can add any selector and animation class to this object. You can use a simple JSON object, or more elaborate like this (you can also mix them): `{"ul li": {"animation":"animate__fadeInLeft", "speed":"slow", "delay":"100"}}`. An object like that can contain the following keys:
 
-Now you do not need to add any classes to the markup and it will stay like this:
+* animation
+* speed
+* delay
+* split
+* container-delay 
+
+where the last two keys are specific for word- and letter-animations.
+
+If you choose to write all your animation selectors and properties globally, you no longer need to add any classes to the markup and it can stay like this:
 
 ```markdown
-## Global auto-appear mode
 * Add it to any text element
 * Like list items, or headers.
 * It adds some attention.
@@ -170,8 +197,8 @@ format:
   revealjs:
     ...
     appearance:
-      autoappear: true
-      autoelements: '{"ul li": "animate__fadeInLeft"}'
+      autoappear: false
+      autoelements: {"ul li": "animate__fadeInLeft"}
 ```
 
 ```markdown
@@ -183,32 +210,16 @@ format:
 
 ### Local auto-appear, specified
 
-You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class as a string or an array with animations class, optional speed class and delay.  
+You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class(es) as a string or an object with animations class(es), optional speed and optional delay.  
+
+In the example below you can see that mixing strings and objects is perfectly fine. The `ul li` has a simple string for only the animation class(es) while the `h2` uses an object with keys. 
 
 ```markdown
-## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}
+## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}
 
 * This is list item 1
 * This is list item 2
 ```
-Note that if you only want to change the animation type, you can use a string like this:
-
-```js
-{'ul li':'animate__fadeInRight'}
-```
-
-But if you want to change speed and delay, you need an array with properties in this order: 1) animation and speed classes, 2) delay:
-
-```js
-{'h2':['animate__fadeInDown, animate__slow','100ms']}}
-```
-
-You can also write overlapping and overriding definitions:
-
-```js
-{'ul li':['animate__fadeInDown, animate__slow','100ms'], 'ul li + li':['animate__fadeInUp, animate__fast','200ms']}}
-```
-
 
 ## Configuration
 

@@ -388,7 +388,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-autoappear="{“h1”:[“animate__flipInX, slow”],“.subtitle”:[“animate__flipInX, slow”,“700ms”]}" class="quarto-title-block center">
+<section id="title-slide" data-autoappear="{“h1”:[“animate__flipInX, slow”],“.subtitle”:{“animation”:“animate__fadeInDown”, “speed”:“faster”, “split”:“letters”, “delay”:“40”, “container-delay”:“1000”}}" class="quarto-title-block center">
   <h1 class="title">Appearance</h1>
   <p class="subtitle">For Reveal.js and Quarto</p>
 
@@ -419,18 +419,24 @@
 <li><span class="animate__bounceInLeft" data-appear-parent="true">It adds some impact.</span></li>
 </ul>
 </section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<h3 class="animate__fadeInDown" data-split="words" data-delay="200" id="let-lines-appear-per-word">Let lines appear per word</h3>
+<h3 id="or-per-character"><span class="animate__fadeInDown" data-delay="600">or…</span> <span class="animate__fadeInDown animate__faster" data-split="letters" data-delay="75" data-container-delay="800">per character</span></h3>
+</section>
 <section id="let-images-appear" class="slide level2 center">
 <h2>Let images appear</h2>
 <div class="row">
-<p><img data-src="img/1.jpg" class="animate__flipInX"> <img data-src="img/2.jpg" class="animate__flipInX"> <img data-src="img/3.jpg" class="animate__flipInX"> <img data-src="img/4.jpg" class="animate__flipInX"> <img data-src="img/5.jpg" class="animate__flipInX"></p>
+<p><img data-src="img/1.jpg" class="demoimg animate__flipInX"> <img data-src="img/2.jpg" class="demoimg animate__flipInX"> <img data-src="img/3.jpg" class="demoimg animate__flipInX"> <img data-src="img/4.jpg" class="demoimg animate__flipInX"> <img data-src="img/5.jpg" class="demoimg animate__flipInX"></p>
 </div>
 </section>
-<section id="inside-fragments" class="slide level2 center">
-<h2>Inside fragments</h2>
-<p>Like this <span class="animate__fadeInDown faster">(click next)</span>:</p>
+<section id="use-with-fragments" class="slide level2 center">
+<h2>Use with fragments</h2>
+<p>Inside fragments like this <span class="animate__fadeInDown faster">(click next)</span>:</p>
 <div class="row fragment">
-<p><img data-src="img/1.jpg" class="animate__fadeInDown"> <img data-src="img/2.jpg" class="animate__fadeInDown"> <img data-src="img/3.jpg" class="animate__fadeInDown"> <img data-src="img/4.jpg" class="animate__fadeInDown"> <img data-src="img/5.jpg" class="animate__fadeInDown"></p>
+<p><img data-src="img/1.jpg" class="demoimg animate__fadeInDown"> <img data-src="img/2.jpg" class="demoimg animate__fadeInDown"> <img data-src="img/3.jpg" class="demoimg animate__fadeInDown"> <img data-src="img/4.jpg" class="demoimg animate__fadeInDown"> <img data-src="img/5.jpg" class="demoimg animate__fadeInDown"></p>
 </div>
+<p><span class="fragment animate__fadeInDown">Or as a fragment itself.</span></p>
 </section>
 <section id="animate.css-animations" class="slide level2 center">
 <h2>Animate.css animations</h2>
@@ -453,8 +459,9 @@
 <li><span class="animate__skidRight" data-appear-parent="true" data-delay="1000">.animate__skidRight</span></li>
 <li><span class="animate__skidRightBig" data-appear-parent="true" data-delay="1000">.animate__skidRightBig</span></li>
 <li><span class="animate__shrinkIn" data-appear-parent="true" data-delay="1000">.animate__shrinkIn</span></li>
-<li><span class="animate__shrinkInBlur" data-appear-parent="true" data-delay="1000">.animate__shrinkInBlur</span></li>
+<li><span class="animate__shrinkInBig" data-appear-parent="true" data-delay="1000">.animate__shrinkInBig</span></li>
 </ul>
+<p><span class="small">Note: The shrinkInBlur animation was removed from Appearance, due to performance issues. For backwards compatibility, any element that used it will now use the <code>shrinkIn</code> animation instead.</span></p>
 </section></section>
 <section>
 <section id="setup" class="title-slide slide level1 center">
@@ -481,14 +488,25 @@
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> appearance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="markup" class="slide level2 center">
-<h2>Markup</h2>
+<section id="markup-auto" class="slide level2 center">
+<h2>Markup (auto)</h2>
+<p>For <em>automatic markup</em>, you can use the <a href="#/autoappear"><code>autoappear</code></a> option.</p>
+<p>For <em>manual markup</em>, continue to the next slide.</p>
+</section>
+<section id="markup-manual" class="slide level2 center">
+<h2>Markup (manual)</h2>
 <p>Add an animation class to the elements that you would like to have animated when the slide appears:</p>
 <p><br></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is the Quarto way of adding attributes. Check the <a href="https://github.com/Martinomagnifico/reveal.js-appearance">regular demo</a> to see how you do this in HTML.</p>
 <p>To simplify it <em>in any markup</em>, you can use the <a href="#/autoappear">autoappear</a> option.</p>
+</section>
+<section id="markup-manual-for-words-or-letters" class="slide level2 center">
+<h2>Markup (manual) for words or letters</h2>
+<p>To nicely animate the words in a heading, or the letters of a word, add an animation class to it, and add a data-attribute for the kind of split you want:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown data-split="letters"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="quarto-and-list-items" class="slide level2 center">
 <h2>Quarto and list items</h2>
@@ -508,14 +526,14 @@
 </div>
 </div>
 <p>Add <code>data-appear-parent="true"</code> to the list item.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or globally like this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">appearparents</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">appearparents</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="now-change-it" class="title-slide slide level1 center">
@@ -526,13 +544,13 @@
 <h2>Change the delay</h2>
 <p>Use <code>data-delay="*"</code> on each element, where the wildcard is the delay in microseconds from the appearance of the previous element.</p>
 <div class="row">
-<p><img data-src="img/1.jpg" class="animate__fadeInDown" data-delay="0"> <img data-src="img/2.jpg" class="animate__fadeInDown" data-delay="200"> <img data-src="img/3.jpg" class="animate__fadeInDown" data-delay="160"> <img data-src="img/4.jpg" class="animate__fadeInDown" data-delay="120"> <img data-src="img/5.jpg" class="animate__fadeInDown" data-delay="80"></p>
+<p><img data-src="img/1.jpg" class="demoimg animate__fadeInDown" data-delay="0"> <img data-src="img/2.jpg" class="demoimg animate__fadeInDown" data-delay="200"> <img data-src="img/3.jpg" class="demoimg animate__fadeInDown" data-delay="160"> <img data-src="img/4.jpg" class="demoimg animate__fadeInDown" data-delay="120"> <img data-src="img/5.jpg" class="animate__fadeInDown" data-delay="80"></p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown data-delay="0"}</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown data-delay="200"}</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__fadeInDown data-delay="160"}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__fadeInDown data-delay="120"}</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__fadeInDown data-delay="80"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown data-delay="0"}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown data-delay="200"}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__fadeInDown data-delay="160"}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__fadeInDown data-delay="120"}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__fadeInDown data-delay="80"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>data-delay</code> is automatically converted to CSS animation delay.</p>
 </section>
 <section id="change-the-animation-speed" class="slide level2 center">
@@ -540,26 +558,35 @@
 <p>Use the speed classes from Animate.css to change the speed of the animation:</p>
 <div class="row">
 <div class="col">
-<p>slower <img data-src="img/1.jpg" class="animate__bounceIn animate__slower"></p>
+<p>slower <img data-src="img/1.jpg" class="demoimg animate__bounceIn animate__slower"></p>
 </div>
 <div class="col">
-<p>slow <img data-src="img/2.jpg" class="animate__bounceIn animate__slow"></p>
+<p>slow <img data-src="img/2.jpg" class="demoimg animate__bounceIn animate__slow"></p>
 </div>
 <div class="col">
-<p>&nbsp; <img data-src="img/3.jpg" class="animate__bounceIn"></p>
+<p>&nbsp; <img data-src="img/3.jpg" class="demoimg animate__bounceIn"></p>
 </div>
 <div class="col">
-<p>fast <img data-src="img/4.jpg" class="animate__bounceIn animate__fast"></p>
+<p>fast <img data-src="img/4.jpg" class="demoimg animate__bounceIn animate__fast"></p>
 </div>
 <div class="col">
-<p>faster <img data-src="img/5.jpg" class="animate__bounceIn animate__faster"></p>
+<p>faster <img data-src="img/5.jpg" class="demoimg animate__bounceIn animate__faster"></p>
 </div>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__bounceIn .animate__slower}</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__bounceIn .animate__slow}</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__bounceIn}</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__bounceIn .animate__fast}</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__bounceIn .animate__faster}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__bounceIn .animate__slower}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__bounceIn .animate__slow}</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__bounceIn}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__bounceIn .animate__fast}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__bounceIn .animate__faster}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="change-the-settings-for-words-or-letters" class="slide level2 center">
+<h2>Change the settings for words or letters</h2>
+<p>For words and letters, just set the speed and delay as described above. The smaller parts will inherit these settings. Set a <code>data-container-delay="*"</code> for a different delay for the container, compared to the standard <code>delay = 300</code> from the options.</p>
+<h3 id="split-into-words"><span class="animate__fadeInDown" data-split="words">Split into words</span></h3>
+<h3 id="split-into-letters"><span class="animate__fadeInDown animate__faster" data-split="letters" data-delay="75" data-container-delay="800">Split into letters</span></h3>
+<p><br></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="change-when-appearance-starts" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Change when appearance starts</h2>
@@ -579,7 +606,7 @@
 <h1>Autoappear</h1>
 <p>You can simplify the addition of animation classes:</p>
 </section>
-<section id="section-1" class="slide level2 center">
+<section id="section-2" class="slide level2 center">
 <h2></h2>
 <p>Sometimes (for example with Markdown), adding classes to elements is a chore.</p>
 <p>Appearance can automatically add animation classes to specific elements (tags or other selectors) in the presentation (with the option <code>autoappear</code>) or per slide (with <code>data-autoappear</code>).</p>
@@ -590,43 +617,53 @@
 <li>This is list item 1</li>
 <li>This is list item 2</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global auto-appear mode</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="local-auto-appear" class="slide level2 center" data-autoappear="true">
-<h2>Local auto-appear</h2>
-<ul>
-<li>This is list item 1</li>
-<li>This is list item 2</li>
-</ul>
 <div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear {data-autoappear=true}</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global auto-appear mode</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use a simple JSON object, or more elaborate like this: <code>'{"ul li": {"animation":"animate__fadeInLeft", "speed":"slow", "delay":"100"}}'</code>.</p>
 </section>
-<section id="local-auto-appear-specified" class="slide level2 center" data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}">
-<h2>Local auto-appear, specified</h2>
-<p>You can also add a JSON object to the slide’s <code>data-autoappear</code>, with specific elements, their animations class as a string or an array with animations class, optional speed class and delay.</p>
+<section id="local-auto-appear" class="slide level2 center" data-autoappear="true">
+<h2>Local auto-appear</h2>
+<p>This will use the JSON object from the global autoelements option, even if autoappear is false.</p>
 <ul>
 <li>This is list item 1</li>
 <li>This is list item 2</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight','h2':['animate__fadeInDown, animate__slow','100ms']}"}</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear {data-autoappear=true}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="local-auto-appear-specified" class="slide level2 center" data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}">
+<h2>Local auto-appear, specified</h2>
+<p>You can also add a JSON object to the slide’s <code>data-autoappear</code>, with specific elements, their animations class(es) as a string or an object with animations class(es), optional speed and optional delay.</p>
+<ul>
+<li>This is list item 1</li>
+<li>This is list item 2</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="local-auto-appear-specified-and-split" class="slide level2 center" data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}">
+<h2>Local auto-appear, specified and split</h2>
+<p>And you can do the same for any animations that you would like to have on lines and words.</p>
+<h3 id="appearance">Appearance</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Appearance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section id="more-demos" class="title-slide slide level1 center">
 <h1>More demos</h1>
@@ -678,7 +715,7 @@
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
-'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":"{\"ul li\": \"animate__fadeInLeft\"}","appearparents":false},
+'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":{"ul li":"animate__fadeInLeft"},"appearparents":false},
 'smaller': false,
  
         // Display controls in the bottom right corner

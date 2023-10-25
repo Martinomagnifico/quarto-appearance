@@ -1,307 +1,203 @@
-/*
- ****************************************************************
- * @author: Martijn De Jongh (Martino), martijn.de.jongh@gmail.com
- * https://github.com/Martinomagnifico
+
+/*****************************************************************
  *
- * Appearance.js for Reveal.js
- * Version 1.2.0
+ * Appearance for Reveal.js 
+ * Version 1.3.0
  * 
+ * @author: Martijn De Jongh (Martino), martijn.de.jongh@gmail.com
+ * https://github.com/martinomagnifico
+ *
  * @license 
  * MIT licensed
+ * 
+ * Copyright (C) 2023 Martijn De Jongh (Martino)
  *
- * Thanks to:
- *  - Hakim El Hattab, Reveal.js
- *  - Daniel Eden, Animate.css
- *****************************************************************
-*/
-/* Animate.css overrides */
-section:not(.stack):not([data-appearance-can-start]) .animate__animated, section:not(.stack):not([data-appearance-can-start]) .animated {
-  opacity: 0;
-  -webkit-animation: none;
-          animation: none;
-}
-.reveal.overview section:not(.stack):not([data-appearance-can-start]) .animated, .reveal.overview section:not(.stack):not([data-appearance-can-start]) .animate__animated {
-  visibility: visible;
-  -webkit-animation: none;
-          animation: none;
-  opacity: 1;
-}
-
-.fragment:not(.visible) .animate__animated, .fragment:not(.visible) .animated, .fragment:not(.visible).animate__animated, .fragment:not(.visible).animated {
-  opacity: 0;
-  -webkit-animation: none;
-          animation: none;
-}
-
-i.animate__animated, i.animated,
-span.animate__animated, span.animated {
-  display: inline-block;
-}
+ ******************************************************************/
 
 /* Custom Appearance animation keyframes */
-@-webkit-keyframes skidLeft {
-  from {
-    -webkit-transform: translate3d(-20%, 0, 0) skewX(0deg);
-            transform: translate3d(-20%, 0, 0) skewX(0deg);
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translate3d(2%, 0, 0) skewX(-10deg);
-            transform: translate3d(2%, 0, 0) skewX(-10deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translate3d(-1%, 0, 0) skewX(10deg);
-            transform: translate3d(-1%, 0, 0) skewX(10deg);
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-}
 @keyframes skidLeft {
   from {
-    -webkit-transform: translate3d(-20%, 0, 0) skewX(0deg);
-            transform: translate3d(-20%, 0, 0) skewX(0deg);
+    transform: translate3d(-20%, 0, 0) skewX(0deg);
     opacity: 0;
   }
   50% {
-    -webkit-transform: translate3d(2%, 0, 0) skewX(-10deg);
-            transform: translate3d(2%, 0, 0) skewX(-10deg);
+    transform: translate3d(2%, 0, 0) skewX(-10deg);
     opacity: 1;
   }
   75% {
-    -webkit-transform: translate3d(-1%, 0, 0) skewX(10deg);
-            transform: translate3d(-1%, 0, 0) skewX(10deg);
+    transform: translate3d(-1%, 0, 0) skewX(10deg);
   }
   to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-}
-@-webkit-keyframes skidLeftBig {
-  from {
-    -webkit-transform: translate3d(-100%, 0, 0) skewX(0deg);
-            transform: translate3d(-100%, 0, 0) skewX(0deg);
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translate3d(2%, 0, 0) skewX(-10deg);
-            transform: translate3d(2%, 0, 0) skewX(-10deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translate3d(-1%, 0, 0) skewX(10deg);
-            transform: translate3d(-1%, 0, 0) skewX(10deg);
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
+    transform: translate3d(0, 0, 0) skewX(0deg);
   }
 }
 @keyframes skidLeftBig {
   from {
-    -webkit-transform: translate3d(-100%, 0, 0) skewX(0deg);
-            transform: translate3d(-100%, 0, 0) skewX(0deg);
+    transform: translate3d(-100%, 0, 0) skewX(0deg);
     opacity: 0;
   }
   50% {
-    -webkit-transform: translate3d(2%, 0, 0) skewX(-10deg);
-            transform: translate3d(2%, 0, 0) skewX(-10deg);
+    transform: translate3d(2%, 0, 0) skewX(-10deg);
     opacity: 1;
   }
   75% {
-    -webkit-transform: translate3d(-1%, 0, 0) skewX(10deg);
-            transform: translate3d(-1%, 0, 0) skewX(10deg);
+    transform: translate3d(-1%, 0, 0) skewX(10deg);
   }
   to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-}
-@-webkit-keyframes skidRight {
-  from {
-    -webkit-transform: translate3d(20%, 0, 0) skewX(0deg);
-            transform: translate3d(20%, 0, 0) skewX(0deg);
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translate3d(-2%, 0, 0) skewX(10deg);
-            transform: translate3d(-2%, 0, 0) skewX(10deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translate3d(1%, 0, 0) skewX(-10deg);
-            transform: translate3d(1%, 0, 0) skewX(-10deg);
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
+    transform: translate3d(0, 0, 0) skewX(0deg);
   }
 }
 @keyframes skidRight {
   from {
-    -webkit-transform: translate3d(20%, 0, 0) skewX(0deg);
-            transform: translate3d(20%, 0, 0) skewX(0deg);
+    transform: translate3d(20%, 0, 0) skewX(0deg);
     opacity: 0;
   }
   50% {
-    -webkit-transform: translate3d(-2%, 0, 0) skewX(10deg);
-            transform: translate3d(-2%, 0, 0) skewX(10deg);
+    transform: translate3d(-2%, 0, 0) skewX(10deg);
     opacity: 1;
   }
   75% {
-    -webkit-transform: translate3d(1%, 0, 0) skewX(-10deg);
-            transform: translate3d(1%, 0, 0) skewX(-10deg);
+    transform: translate3d(1%, 0, 0) skewX(-10deg);
   }
   to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-}
-@-webkit-keyframes skidRightBig {
-  from {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(0deg);
-            transform: translate3d(100%, 0, 0) skewX(0deg);
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translate3d(-2%, 0, 0) skewX(10deg);
-            transform: translate3d(-2%, 0, 0) skewX(10deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translate3d(1%, 0, 0) skewX(-10deg);
-            transform: translate3d(1%, 0, 0) skewX(-10deg);
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
+    transform: translate3d(0, 0, 0) skewX(0deg);
   }
 }
 @keyframes skidRightBig {
   from {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(0deg);
-            transform: translate3d(100%, 0, 0) skewX(0deg);
+    transform: translate3d(100%, 0, 0) skewX(0deg);
     opacity: 0;
   }
   50% {
-    -webkit-transform: translate3d(-2%, 0, 0) skewX(10deg);
-            transform: translate3d(-2%, 0, 0) skewX(10deg);
+    transform: translate3d(-2%, 0, 0) skewX(10deg);
     opacity: 1;
   }
   75% {
-    -webkit-transform: translate3d(1%, 0, 0) skewX(-10deg);
-            transform: translate3d(1%, 0, 0) skewX(-10deg);
+    transform: translate3d(1%, 0, 0) skewX(-10deg);
   }
   to {
-    -webkit-transform: translate3d(0, 0, 0) skewX(0deg);
-            transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-}
-@-webkit-keyframes shrinkIn {
-  from {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-            transform: scale3d(1.3, 1.3, 1.3);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+    transform: translate3d(0, 0, 0) skewX(0deg);
   }
 }
 @keyframes shrinkIn {
   from {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-            transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
     opacity: 0;
   }
   to {
     opacity: 1;
   }
 }
-@-webkit-keyframes shrinkInBlur {
+@keyframes shrinkInBig {
   from {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-            transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.6, 1.6, 1.6);
     opacity: 0;
-    -webkit-filter: blur(5px);
-            filter: blur(5px);
   }
-  75% {
+  to {
     opacity: 1;
-    -webkit-filter: blur(0px);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
   }
 }
 @keyframes shrinkInBlur {
   from {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-            transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
     opacity: 0;
-    -webkit-filter: blur(5px);
-            filter: blur(5px);
+    filter: blur(5px);
   }
   75% {
     opacity: 1;
-    -webkit-filter: blur(0px);
+    filter: blur(0.5px);
   }
   100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 /* Custom Appearance animation classes */
 .skidRight, .animate__skidRight {
-  -webkit-animation-name: skidRight;
-          animation-name: skidRight;
+  animation-name: skidRight;
 }
 
 .skidRightBig, .animate__skidRightBig {
-  -webkit-animation-name: skidRightBig;
-          animation-name: skidRightBig;
+  animation-name: skidRightBig;
 }
 
 .skidLeft, .animate__skidLeft {
-  -webkit-animation-name: skidLeft;
-          animation-name: skidLeft;
+  animation-name: skidLeft;
 }
 
 .skidLeftBig, .animate__skidLeftBig {
-  -webkit-animation-name: skidLeftBig;
-          animation-name: skidLeftBig;
+  animation-name: skidLeftBig;
 }
 
 .shrinkIn, .animate__shrinkIn {
-  -webkit-animation-name: shrinkIn;
-          animation-name: shrinkIn;
+  animation-name: shrinkIn;
+}
+
+.shrinkInBig, .animate__shrinkInBig {
+  animation-name: shrinkInBig;
 }
 
 .shrinkInBlur, .animate__shrinkInBlur {
-  -webkit-animation-name: shrinkInBlur;
-          animation-name: shrinkInBlur;
+  animation-name: shrinkIn;
+}
+
+.shrinkInBlurAnyway, .animate__shrinkInBlurAnyway {
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0, 0, 0) translateZ(0);
+  animation-name: shrinkInBlur;
+}
+
+/* Animate.css overrides */
+section:not(.stack):not([data-appearance-can-start]) .animate__animated,
+section:not(.stack):not([data-appearance-can-start]) .animated,
+.fragment:not(.visible) .animate__animated,
+.fragment:not(.visible) .animated {
+  opacity: 0;
+  animation: none;
+  will-change: animation;
+}
+.reveal.overview section:not(.stack):not([data-appearance-can-start]) .animated,
+.reveal.overview section:not(.stack):not([data-appearance-can-start]) .animate__animated,
+.reveal.overview .fragment:not(.visible) .animated,
+.reveal.overview .fragment:not(.visible) .animate__animated {
+  visibility: visible;
+  animation: none;
+  opacity: 1;
+}
+
+.fragment.animate__animated:not(.visible), .fragment.animated:not(.visible) {
+  transition: opacity 0.3s ease-in-out !important;
+  opacity: 0;
+  animation: none;
+  will-change: animation;
+}
+.fragment.animate__animated.visible.animate__animated, .fragment.animate__animated.visible.animated, .fragment.animated.visible.animate__animated, .fragment.animated.visible.animated {
+  transition: none;
+}
+
+i.animate__animated, i.animated, span.animate__animated, span.animated {
+  display: inline-block;
+}
+
+.animate__animated.animationended,
+.animated.animationended {
+  animation: none;
 }
 
 .fast, .animate__fast {
-  -webkit-animation-duration: calc(var(--animate-duration) * 0.8);
-          animation-duration: calc(var(--animate-duration) * 0.8);
+  animation-duration: calc(var(--animate-duration) * 0.8);
 }
 
 .faster, .animate__faster {
-  -webkit-animation-duration: calc(var(--animate-duration) / 2);
-          animation-duration: calc(var(--animate-duration) / 2);
+  animation-duration: calc(var(--animate-duration) / 2);
 }
 
 .slow, .animate__slow {
-  -webkit-animation-duration: calc(var(--animate-duration) * 2);
-          animation-duration: calc(var(--animate-duration) * 2);
+  animation-duration: calc(var(--animate-duration) * 2);
 }
 
 .slower, .animate__slower {
-  -webkit-animation-duration: calc(var(--animate-duration) * 3);
-          animation-duration: calc(var(--animate-duration) * 3);
+  animation-duration: calc(var(--animate-duration) * 3);
 }
 
 .print-pdf .animated, .print-pdf .animate__animated,
@@ -309,18 +205,22 @@ span.animate__animated, span.animated {
 .print-pdf section:not(.stack):not([data-appearance-can-start]) .animate__animated {
   opacity: 1;
   visibility: visible;
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
 }
 .print-pdf .reveal .fragment {
   opacity: 1;
 }
 
 .reveal.sv .animated, .reveal.sv .animate__animated,
-.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animated,
-.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animate__animated {
+.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animated:not(.fragment),
+.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animate__animated:not(.fragment),
+.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animated.fragment.visible,
+.reveal.sv section:not(.stack):not([data-appearance-can-start]) .animate__animated.fragment.visible, .reveal-viewport.sv .animated, .reveal-viewport.sv .animate__animated,
+.reveal-viewport.sv section:not(.stack):not([data-appearance-can-start]) .animated:not(.fragment),
+.reveal-viewport.sv section:not(.stack):not([data-appearance-can-start]) .animate__animated:not(.fragment),
+.reveal-viewport.sv section:not(.stack):not([data-appearance-can-start]) .animated.fragment.visible,
+.reveal-viewport.sv section:not(.stack):not([data-appearance-can-start]) .animate__animated.fragment.visible {
   opacity: 1;
   visibility: visible;
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
 }
