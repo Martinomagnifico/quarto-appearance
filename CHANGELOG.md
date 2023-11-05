@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.3.1] - 2023-11-05
+### Changed
+- Fixed invisible elements in auto-animate slides
 
 ## [1.3.0] - 2023-10-25
 ### Added

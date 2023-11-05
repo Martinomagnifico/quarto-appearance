@@ -504,7 +504,7 @@
 </section>
 <section id="markup-manual-for-words-or-letters" class="slide level2 center">
 <h2>Markup (manual) for words or letters</h2>
-<p>Add an animation class to the sentence or word that you want to split into its parts, and add a data-attribute for the kind of split you want:</p>
+<p>To nicely animate the words in a heading, or the letters of a word, add an animation class to it, and add a data-attribute for the kind of split you want:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown data-split="letters"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -715,7 +715,7 @@
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
-'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":"{\"ul li\": \"animate__fadeInLeft\"}","appearparents":false},
+'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":{"ul li":"animate__fadeInLeft"},"appearparents":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
