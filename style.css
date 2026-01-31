@@ -60,10 +60,10 @@ section ul li + li {
 
 .row > p, .row > ul, .row > .col {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   list-style-type: none;
 	display: grid;
-	width: 100%;
+  width: 70%;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 1em;
   text-align: center;
@@ -99,7 +99,7 @@ section ul li + li {
 
 .reveal div.sourceCode {
   border: none;
-  margin-top: 0.5em;
+  margin-top: 0.5em !important;
 }
 
 .reveal pre {
@@ -157,6 +157,8 @@ p code {
 .reveal img.demoimg {
   margin: 1em;
   border-radius: 5%;
+  	width: 3.5em;
+	height: 3.5em;
 }
 .reveal img.demoimg.smallcircle {
   margin: 0.4em;

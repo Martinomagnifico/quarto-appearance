@@ -6,7 +6,7 @@ format:
     code-overflow: wrap
     code-line-numbers: false
     title-slide-attributes:
-      data-autoappear: '{"h1":["animate__flipInX, slow"],".subtitle":{"animation":"animate__fadeInDown", "speed":"faster", "split":"letters", "delay":"40", "container-delay":"1000"}}'
+      data-autoappear: "{'h1':{'animation':'animate__flipInX','speed':'slow'},'.subtitle':{'animation':'animate__fadeInDown','speed':'faster','split':'letters','delay':40,'container-delay':1000}}"
     center: true
     theme: dark
     navigation-mode: vertical
@@ -208,7 +208,7 @@ Use `data-delay="*"` on each element, where the wildcard is the delay in microse
 ![](img/2.jpg){.demoimg .animate__fadeInDown data-delay="200"}
 ![](img/3.jpg){.demoimg .animate__fadeInDown data-delay="160"}
 ![](img/4.jpg){.demoimg .animate__fadeInDown data-delay="120"}
-![](img/5.jpg){.animate__fadeInDown data-delay="80"}
+![](img/5.jpg){.demoimg .animate__fadeInDown data-delay="80"}
 :::
 
 ```markdown
@@ -226,23 +226,12 @@ Use `data-delay="*"` on each element, where the wildcard is the delay in microse
 
 Use the speed classes from Animate.css to change the speed of the animation:
 
-::: {.row}
-::: {.col}
-slower ![](img/1.jpg){.demoimg .animate__bounceIn .animate__slower}
-:::
-::: {.col}
-slow ![](img/2.jpg){.demoimg .animate__bounceIn .animate__slow}
-:::
-::: {.col}
-&nbsp; ![](img/3.jpg){.demoimg .animate__bounceIn}
-:::
-::: {.col}
-fast ![](img/4.jpg){.demoimg .animate__bounceIn .animate__fast}
-:::
-::: {.col}
-faster ![](img/5.jpg){.demoimg .animate__bounceIn .animate__faster}
-:::
-:::
+![](img/1.jpg){.demoimg .animate__bounceIn .animate__slower}
+![](img/2.jpg){.demoimg .animate__bounceIn .animate__slow}
+![](img/3.jpg){.demoimg .animate__bounceIn}
+![](img/4.jpg){.demoimg .animate__bounceIn .animate__fast}
+![](img/5.jpg){.demoimg .animate__bounceIn .animate__faster}
+
 
 
 ```markdown
@@ -255,9 +244,9 @@ faster ![](img/5.jpg){.demoimg .animate__bounceIn .animate__faster}
 
 
 ## Change the settings for words or letters
-For words and letters, just set the speed and delay as described above. The smaller parts will inherit these settings. Set a `data-container-delay="*"` for a different delay for the container, compared to the standard `delay = 300` from the options.
+For words and letters, just set the speed and delay as described above. The smaller parts will inherit these settings. Set a `data-container-delay="*"` for a different delay for the container, compared to the standard `delay = 300` from the options. Add a `baseline` class for a nice baseline effect.
 
-### [Split into words]{.animate__fadeInDown data-split="words"}
+### [Split into words]{.animate__fadeInUp .baseline data-split="words"}
 ### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}
 
 <br>
@@ -279,7 +268,32 @@ You can use any of the following events:
 * [slidechanged (with the transition)]{.animate__fadeInLeft data-appear-parent="true"}
 * [auto (with transition, on autoanimate slides)]{.animate__fadeInLeft data-appear-parent="true"}
 
-This can also be set per-slide with data-attributes.
+```markdown
+## Change when appearance starts {data-appearevent="auto"}
+```
+
+This can be set per-slide with `data-appearevent`, or globally in the Appearance options.
+
+
+## Change the initial delay {data-initdelay="3000"}
+
+This delay is triggered when a slide is loaded/reloaded for the first time.
+
+When you came to this slide, you probably came from the previous slide so the initial delay was NOT applied. Reload your browser to see the effect. The images will then only appear after 3 seconds.
+
+::: {.row}
+![](img/1.jpg){.demoimg .animate__flipInX}
+![](img/2.jpg){.demoimg .animate__flipInX}
+![](img/3.jpg){.demoimg .animate__flipInX}
+![](img/4.jpg){.demoimg .animate__flipInX}
+![](img/5.jpg){.demoimg .animate__flipInX}
+:::
+
+```markdown
+## Change the initial delay {data-initdelay="3000"}
+```
+
+This can also be set globally in the Appearance options.
 
 
 
@@ -342,15 +356,17 @@ format:
 
 You can also add a JSON object to the slide’s `data-autoappear`, with specific elements, their animations class(es) as a string or an object with animations class(es), optional speed and optional delay.
 
-* This is list item 1
-* This is list item 2
+* This is a list item
 
 ```markdown
 ## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}
 
-* This is list item 1
-* This is list item 2
+* This is a list item
 ```
+
+Appearance lets you use single quotes in JSON even though not valid: `data-autoappear="{'ul li':'animate__fadeInRight'}"`. This is because Reveal-Markdown only allows double quotes for its data-attributes (encoding your double quotes is also good, but that is a lot more work). This can also be set globally in the Appearance options.
+
+
 
 ## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}
 
@@ -363,6 +379,26 @@ And you can do the same for any animations that you would like to have on lines 
 
 ### Appearance
 ```
+
+This can also be set globally in the Appearance options.
+
+## Content-aware delays {data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}"}
+
+When you have multiple groups of elements in separate containers, `container-delay` applies to the first element in each container, while `delay` applies between elements within the same container. In the example below, the `delay` is the standard 300ms from the global options, but the first image will wait 2 seconds.
+
+::: {.row}
+![](img/1.jpg){.demoimg .smallcircle .test}
+![](img/2.jpg){.demoimg .smallcircle .test}
+![](img/3.jpg){.demoimg .smallcircle .test}
+![](img/4.jpg){.demoimg .smallcircle .test}
+![](img/5.jpg){.demoimg .smallcircle .test}
+:::
+
+```markdown
+## Content-aware delays {data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}"}
+```
+
+This can also be set globally in the Appearance options.
 
 
 # More demos

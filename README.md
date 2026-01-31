@@ -12,8 +12,6 @@ In Powerpoint you can make slides with items that appear automatically with effe
 
 The animations will start automatically after or at each slide or fragment change if the HTML is set up to use Appearance.
 
-Version 1.3.0 adds an option to animate the words in a sentence, or the letters in a word.
-
 
 ## Basics
 
@@ -41,7 +39,7 @@ The original plugin is also published to npm. To use Appearance in a normal Reve
 ## Setup
 
 ### Styling
-The styling of Appearance is automatically inserted, either loaded through NPM or from the plugin folder. Two files are inserted: The first one is Animate.css by Daniel Eden for the basic animations, we add it through a CDN. The second file adds to the first stylesheet to allow for a non-animated state.
+The styling of Appearance is automatically inserted by installing the extension.
 
 
 ### Markup
@@ -80,6 +78,8 @@ format:
     appearance:
       appearparents: true
 ```
+You may choose to NOT set it. The bulletpoint of list items will then also NOT be animated.
+
 
 #### Animating words and letters
 
@@ -149,6 +149,12 @@ These same event triggers can be set through the `appearevent` option in the glo
 
 When using Appearance inside an autoanimate slide, and changing the appearevent to `slidechanged` or `auto`, keep in mind that Reveal transforms opacity for all non-autoanimate items, while Appearance does the same on most of the effects. To avoid strange behaviour, wrap these Appearance items in a parent. For example, a list of animated bullet points works well, because the animated class is on the children, not the parent. Separate headings or other elements do not have that, so should be wrapped.
 
+### Initial delay on page load
+You can set a delay before animations start, but only on the initial page load or reloads (not when navigating between slides):
+
+```
+## Change the initial delay {data-initdelay="3000"}
+```
 
 ## Autoappear
 
@@ -171,13 +177,15 @@ format:
 
 You can add any selector and animation class to this object. You can use a simple JSON object, or more elaborate like this (you can also mix them): `{"ul li": {"animation":"animate__fadeInLeft", "speed":"slow", "delay":"100"}}`. An object like that can contain the following keys:
 
-* animation
-* speed
-* delay
-* split
-* container-delay 
+* **animation**: The Animate.css animation class
+* **speed**: Animation speed (slower, slow, fast, faster)
+* **delay**: Delay between elements in milliseconds
+* **initdelay**: Delay before the first element of this type appears in milliseconds
+* **container-delay**: Delay before the first element in each container (when elements are in separate parent containers)
+* **split**: Split text into words (`data-split="words"`) or letters (`data-split="letters"`) for individual animation
 
-where the last two keys are specific for word- and letter-animations.
+
+where the last key is specific for word- and letter-animations.
 
 If you choose to write all your animation selectors and properties globally, you no longer need to add any classes to the markup and it can stay like this:
 
@@ -221,6 +229,15 @@ In the example below you can see that mixing strings and objects is perfectly fi
 * This is list item 2
 ```
 
+### Container-aware delays
+
+When you have multiple groups of elements in separate containers, `container-delay` applies to the first element in each container, while `delay` applies between elements within the same container. In the example below, the `delay` is the standard 300ms from the global options, but the first image of a set of images will wait 2 seconds.
+
+```markdown
+## Content-aware delays {data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}"}
+```
+
+
 ## Configuration
 
 There are a few options that you can change in the YAML options. The values below are default and do not need to be set if not changed.
@@ -235,6 +252,7 @@ format:
       autoappear: false
       autoelements: false
       appearparents: false
+      initdelay: 0
 revealjs-plugins:
   - appearance
 ```
@@ -246,7 +264,7 @@ revealjs-plugins:
 * **`autoappear`**: Use this when you do not want to add classes to each item that you want to appear, and just let Appearance add animation classes to (all of) the provided elements in the presentation. See "Autoappear" mode above.
 * **`autoelements`**: These are the elements that `autoappear` will target. Each element has a selector and an animation class. If `autoappear` is off, the elements will still get animation if the section contains a `data-autoappear` attribute.
 * **`appearparents`**: Quarto will wrap the content of a list item in a span if you try to add attibutes to it. It is unclear why Quarto does this. ***But the bulletpoint or list number of those list items will then not be animated***. This can be fixed globally by setting `appearparents: true`. (It can also be set per item, with a data-attribute: `data-appear-parent="true"`) 
-
+* **`initdelay`**: Sets a delay in milliseconds before any animations start, but only on the initial page load (not when navigating between slides). Default is `0` (no delay). Can be overridden per-slide with `data-initdelay` attribute.
 
 ## Like it?
 If you like it, please star this repo! 
@@ -257,4 +275,4 @@ And if you want to show off what you made with it, please do :-)
 ## License
 MIT licensed
 
-Copyright (C) 2023 Martijn De Jongh (Martino)
+Copyright (C) 2026 Martijn De Jongh (Martino)
