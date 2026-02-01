@@ -149,12 +149,6 @@ These same event triggers can be set through the `appearevent` option in the glo
 
 When using Appearance inside an autoanimate slide, and changing the appearevent to `slidechanged` or `auto`, keep in mind that Reveal transforms opacity for all non-autoanimate items, while Appearance does the same on most of the effects. To avoid strange behaviour, wrap these Appearance items in a parent. For example, a list of animated bullet points works well, because the animated class is on the children, not the parent. Separate headings or other elements do not have that, so should be wrapped.
 
-### Initial delay on page load
-You can set a delay before animations start, but only on the initial page load or reloads (not when navigating between slides):
-
-```
-## Change the initial delay {data-initdelay="3000"}
-```
 
 ## Autoappear
 
