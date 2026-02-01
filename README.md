@@ -258,7 +258,7 @@ revealjs-plugins:
 * **`autoappear`**: Use this when you do not want to add classes to each item that you want to appear, and just let Appearance add animation classes to (all of) the provided elements in the presentation. See "Autoappear" mode above.
 * **`autoelements`**: These are the elements that `autoappear` will target. Each element has a selector and an animation class. If `autoappear` is off, the elements will still get animation if the section contains a `data-autoappear` attribute.
 * **`appearparents`**: Quarto will wrap the content of a list item in a span if you try to add attibutes to it. It is unclear why Quarto does this. ***But the bulletpoint or list number of those list items will then not be animated***. This can be fixed globally by setting `appearparents: true`. (It can also be set per item, with a data-attribute: `data-appear-parent="true"`) 
-* **`initdelay`**: Sets a delay in milliseconds before any animations start, but only on the initial page load (not when navigating between slides). Default is `0` (no delay). Can be overridden per-slide with `data-initdelay` attribute.
+* **`initdelay`**: Sets a delay in milliseconds before any animations start, but only on the initial page load (not when navigating between slides). Default is `0` (no delay). 
 
 ## Like it?
 If you like it, please star this repo! 
