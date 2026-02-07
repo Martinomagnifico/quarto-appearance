@@ -4,11 +4,11 @@
 
 A quarto extension for [Reveal.js](https://revealjs.com) that animates elements sequentially like in Powerpoint. Perfect for online portfolios or other presentations with images.
 
-[![Screenshot](https://martinomagnifico.github.io/reveal.js-appearance/screenshot.png)](https://martinomagnifico.github.io/quarto-appearance/docs/demo.html)
+[![Screenshot](https://martinomagnifico.github.io/reveal.js-appearance/screenshot.png)](https://martinomagnifico.github.io/quarto-appearance/demo.html)
 
 In Powerpoint you can make slides with items that appear automatically with effects. This plugin for Reveal.js tries to achieve the same result. It's easy to set up. It uses Animate.css by Daniel Eden for the animations, with some changes to allow for a non-animated state. 
 
-* [Demo](https://martinomagnifico.github.io/quarto-appearance/docs/demo.html)
+* [Demo](https://martinomagnifico.github.io/quarto-appearance/demo.html)
 
 The animations will start automatically after or at each slide or fragment change if the HTML is set up to use Appearance.
 
