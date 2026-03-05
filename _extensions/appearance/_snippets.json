@@ -1,0 +1,22 @@
+{
+  "Appearance config": {
+    "prefix": "config",
+    "body": [
+      "format:",
+      "  revealjs:",
+      "    appearance:",
+      "      autoappear: ${1:true}",
+      "      autoelements: {\"ul li\": \"animate__fadeInLeft\"}",
+      "revealjs-plugins:",
+      "  - appearance"
+    ],
+    "description": "Insert Appearance plugin settings for revealjs."
+  },
+  "Animated span": {
+    "prefix": "span",
+    "body": [
+      "[${1:Animated text}]{.${2:animate__fadeInDown} data-delay=\"${3:200}\"}"
+    ],
+    "description": "Insert inline text with an Animate.css class and optional delay."
+  }
+}

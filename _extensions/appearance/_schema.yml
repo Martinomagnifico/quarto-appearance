@@ -1,0 +1,75 @@
+$schema: https://m.canouil.dev/quarto-wizard/assets/schema/v1/extension-schema.json
+
+formats:
+  revealjs:
+    appearance:
+      type: object
+      description: Configuration for the Appearance reveal.js plugin.
+      properties:
+        hideagain:
+          type: boolean
+          default: true
+          description: Re-hide animated elements when navigating backwards.
+        delay:
+          type: integer
+          default: 300
+          min: 0
+          description: Base delay in milliseconds between element appearances.
+        debug:
+          type: boolean
+          default: false
+          description: Enable debug logging.
+        appearevent:
+          type: string
+          default: slidetransitionend
+          enum: [slidetransitionend, slidechanged, auto]
+          description: Reveal event used to start appearance animations.
+        autoappear:
+          type: boolean
+          default: false
+          description: Automatically apply animation classes to selected elements.
+        autoelements:
+          type: [object, string]
+          description: Selector-to-animation mapping for autoappear mode.
+        appearparents:
+          type: boolean
+          default: false
+          description: Apply animation handling to wrapped list item parents.
+        initdelay:
+          type: integer
+          default: 0
+          min: 0
+          description: Delay in milliseconds before the first animation sequence.
+
+attributes:
+  _any:
+    data-appear-parent:
+      type: boolean
+      description: Animate parent list marker when Quarto wraps list content in spans.
+    data-split:
+      type: string
+      enum: [words, letters]
+      description: Split animated text into words or letters.
+    data-delay:
+      type: integer
+      min: 0
+      description: Delay in milliseconds before this element appears.
+    data-container-delay:
+      type: integer
+      min: 0
+      description: Delay in milliseconds before the first item in a container appears.
+    data-autoappear:
+      type: [boolean, string]
+      description: Enable local autoappear mode or provide selector animation mapping.
+    data-appearevent:
+      type: string
+      enum: [slidetransitionend, slidechanged, auto, autoanimate]
+      description: Override appearance trigger event for a specific slide.
+
+classes:
+  animate__fadeInLeft:
+    description: Animate.css entrance class commonly used with Appearance.
+  animate__fadeInDown:
+    description: Animate.css entrance class commonly used with Appearance.
+  animate__bounceInLeft:
+    description: Animate.css entrance class commonly used with Appearance.
