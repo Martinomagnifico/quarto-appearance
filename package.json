@@ -1,0 +1,9 @@
+{
+  "name": "quarto-appearance",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "quarto preview demo.qmd",
+    "build": "quarto render demo.qmd"
+  }
+}
