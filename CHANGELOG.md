@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.2] - 2026-09-28
+### Changed
+- Brings the extension up to date with Appearance 1.4.2, including the fixes from 1.4.1.
+- Updated for the use of the latest version of Reveal.js.
+- The stylesheet is 30 KB instead of 78 KB. It no longer includes old `-webkit-` prefixes that no current browser needs. The animations are the same.
+
 ## [1.4.0] - 2026-01-31
 ### Changed
 - This new version is built with Vite

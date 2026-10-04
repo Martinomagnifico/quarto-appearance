@@ -139,7 +139,7 @@ To nicely animate the words in a heading, or the letters of a word, add an anima
 
 ## Quarto and list items
 
-Quarto will wrap the content of a list item in a span if you try to add attibutes to it. *The bulletpoint or list number will then not be animated.* Appearance can fix this:
+Quarto mysteriously wraps the content of a list item in a span if you try to add attibutes to it. *The bulletpoint or list number will then not be animated.* Appearance can fix this:
 
 ::: {.row}
 ::: {style="width: 50%; text-align: center; font-size: smaller"}
@@ -153,7 +153,7 @@ Quarto will wrap the content of a list item in a span if you try to add attibute
 :::
 :::
 
-Add `data-appear-parent="true"` to the list item.
+Fix: add `data-appear-parent="true"` to the list item.
 
 ```markdown
 1. [This is a list item]{.animate__fadeInLeft data-appear-parent="true"}

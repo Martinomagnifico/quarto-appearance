@@ -1,8 +1,13 @@
 {
   "name": "quarto-appearance",
-  "version": "1.4.0",
+  "version": "1.4.3",
+  "private": true,
   "scripts": {
     "start": "quarto preview demo.qmd",
-    "build": "quarto render demo.qmd"
+    "build": "quarto render demo.qmd",
+    "sync": "node scripts/sync-plugin.mjs"
+  },
+  "devDependencies": {
+    "reveal.js-appearance": "latest"
   }
 }

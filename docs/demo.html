@@ -6,8 +6,8 @@
 <script src="demo_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="demo_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="demo_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="demo_files/libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+<link href="demo_files/libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>Appearance</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="demo_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="demo_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -28,8 +34,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -40,7 +47,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -62,7 +69,7 @@
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
     code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.al { color: #f07178; } /* Alert */
     code span.an { color: #d4d0ab; } /* Annotation */
     code span.at { color: #00e0e0; } /* Attribute */
     code span.bn { color: #d4d0ab; } /* BaseN */
@@ -93,7 +100,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="demo_files/libs/revealjs/dist/theme/quarto-fbe8d65ee97e1f467f30acda72b246d7.css">
+  <link rel="stylesheet" href="demo_files/libs/revealjs/dist/theme/quarto-8809e16fa9170ffbf2ed5059fd83c480.css">
   <link rel="stylesheet" href="style.css">
   <link href="demo_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="demo_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -284,13 +291,13 @@
 <section id="installation" class="slide level2 center">
 <h2>Installation</h2>
 <p>The following command installs the plugin for use with Quarto:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>quarto add martinomagnifico<span class="op">/</span>quarto<span class="op">-</span>appearance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>quarto add martinomagnifico<span class="op">/</span>quarto<span class="op">-</span>appearance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br> Now refer to the plugin in the YAML:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      //...</span></span>
 <span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> appearance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> appearance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="markup-auto" class="slide level2 center">
 <h2>Markup (auto)</h2>
@@ -301,20 +308,20 @@
 <h2>Markup (manual)</h2>
 <p>Add an animation class to the elements that you would like to have animated when the slide appears:</p>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown}</span>
-<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown}</span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This is the Quarto way of adding attributes. Check the <a href="https://github.com/Martinomagnifico/reveal.js-appearance">regular demo</a> to see how you do this in HTML.</p>
 <p>To simplify it <em>in any markup</em>, you can use the <a href="#/autoappear">autoappear</a> option.</p>
 </section>
 <section id="markup-manual-for-words-or-letters" class="slide level2 center">
 <h2>Markup (manual) for words or letters</h2>
 <p>To nicely animate the words in a heading, or the letters of a word, add an animation class to it, and add a data-attribute for the kind of split you want:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
-<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown data-split="letters"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
+<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown data-split="letters"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="quarto-and-list-items" class="slide level2 center">
 <h2>Quarto and list items</h2>
-<p>Quarto will wrap the content of a list item in a span if you try to add attibutes to it. <em>The bulletpoint or list number will then not be animated.</em> Appearance can fix this:</p>
+<p>Quarto mysteriously wraps the content of a list item in a span if you try to add attibutes to it. <em>The bulletpoint or list number will then not be animated.</em> Appearance can fix this:</p>
 <div class="row">
 <div style="width: 50%; text-align: center; font-size: smaller">
 <ol type="1">
@@ -329,15 +336,15 @@
 </ol>
 </div>
 </div>
-<p>Add <code>data-appear-parent="true"</code> to the list item.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span>
-<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fix: add <code>data-appear-parent="true"</code> to the list item.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">This is a list item</span><span class="co">]</span>{.animate__fadeInLeft data-appear-parent="true"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or globally like this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb6-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
 <span id="cb6-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
-<span id="cb6-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">appearparents</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">appearparents</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="now-change-it" class="title-slide slide level1 center">
@@ -350,22 +357,22 @@
 <div class="row">
 <p><img data-src="img/1.jpg" class="demoimg animate__fadeInDown" data-delay="0"> <img data-src="img/2.jpg" class="demoimg animate__fadeInDown" data-delay="200"> <img data-src="img/3.jpg" class="demoimg animate__fadeInDown" data-delay="160"> <img data-src="img/4.jpg" class="demoimg animate__fadeInDown" data-delay="120"> <img data-src="img/5.jpg" class="demoimg animate__fadeInDown" data-delay="80"></p>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown data-delay="0"}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__fadeInDown data-delay="0"}</span>
 <span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__fadeInDown data-delay="200"}</span>
 <span id="cb7-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__fadeInDown data-delay="160"}</span>
 <span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__fadeInDown data-delay="120"}</span>
-<span id="cb7-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__fadeInDown data-delay="80"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__fadeInDown data-delay="80"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>data-delay</code> is automatically converted to CSS animation delay.</p>
 </section>
 <section id="change-the-animation-speed" class="slide level2 center">
 <h2>Change the animation speed</h2>
 <p>Use the speed classes from Animate.css to change the speed of the animation:</p>
 <p><img data-src="img/1.jpg" class="demoimg animate__bounceIn animate__slower"> <img data-src="img/2.jpg" class="demoimg animate__bounceIn animate__slow"> <img data-src="img/3.jpg" class="demoimg animate__bounceIn"> <img data-src="img/4.jpg" class="demoimg animate__bounceIn animate__fast"> <img data-src="img/5.jpg" class="demoimg animate__bounceIn animate__faster"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__bounceIn .animate__slower}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/1.jpg)</span>{.animate__bounceIn .animate__slower}</span>
 <span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/2.jpg)</span>{.animate__bounceIn .animate__slow}</span>
 <span id="cb8-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/3.jpg)</span>{.animate__bounceIn}</span>
 <span id="cb8-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/4.jpg)</span>{.animate__bounceIn .animate__fast}</span>
-<span id="cb8-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__bounceIn .animate__faster}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/5.jpg)</span>{.animate__bounceIn .animate__faster}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="change-the-settings-for-words-or-letters" class="slide level2 center">
 <h2>Change the settings for words or letters</h2>
@@ -373,8 +380,8 @@
 <h3 id="split-into-words"><span class="animate__fadeInUp baseline" data-split="words">Split into words</span></h3>
 <h3 id="split-into-letters"><span class="animate__fadeInDown animate__faster" data-split="letters" data-delay="75" data-container-delay="800">Split into letters</span></h3>
 <p><br></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
-<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into words]{.animate__fadeInDown data-split="words"}</span></span>
+<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Split into letters]{.animate__fadeInDown .animate__faster data-split="letters" data-delay="75" data-container-delay="800"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="change-when-appearance-starts" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Change when appearance starts</h2>
@@ -387,7 +394,7 @@
 <li><span class="animate__fadeInLeft" data-appear-parent="true">slidechanged (with the transition)</span></li>
 <li><span class="animate__fadeInLeft" data-appear-parent="true">auto (with transition, on autoanimate slides)</span></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy" data-id="quarto-animate-code"><code class="sourceCode markdown hljs"><span id="cb10-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change when appearance starts {data-appearevent="auto"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy" data-id="quarto-animate-code"><code class="sourceCode markdown hljs"><span id="cb10-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change when appearance starts {data-appearevent="auto"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This can be set per-slide with <code>data-appearevent</code>, or globally in the Appearance options.</p>
 </section>
 <section id="change-the-initial-delay" class="slide level2 center" data-initdelay="3000">
@@ -397,7 +404,7 @@
 <div class="row">
 <p><img data-src="img/1.jpg" class="demoimg animate__flipInX"> <img data-src="img/2.jpg" class="demoimg animate__flipInX"> <img data-src="img/3.jpg" class="demoimg animate__flipInX"> <img data-src="img/4.jpg" class="demoimg animate__flipInX"> <img data-src="img/5.jpg" class="demoimg animate__flipInX"></p>
 </div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change the initial delay {data-initdelay="3000"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change the initial delay {data-initdelay="3000"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This can also be set globally in the Appearance options.</p>
 </section></section>
 <section>
@@ -416,15 +423,15 @@
 <li>This is list item 1</li>
 <li>This is list item 2</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb12-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
 <span id="cb12-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
 <span id="cb12-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global auto-appear mode</span></span>
+<span id="cb12-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global auto-appear mode</span></span>
 <span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
-<span id="cb13-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can use a simple JSON object, or more elaborate like this: <code>'{"ul li": {"animation":"animate__fadeInLeft", "speed":"slow", "delay":"100"}}'</code>.</p>
 </section>
 <section id="local-auto-appear" class="slide level2 center" data-autoappear="true">
@@ -434,15 +441,15 @@
 <li>This is list item 1</li>
 <li>This is list item 2</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb14-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb14-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
 <span id="cb14-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">appearance</span><span class="kw">:</span></span>
 <span id="cb14-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoappear</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb14-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear {data-autoappear=true}</span></span>
+<span id="cb14-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">autoelements</span><span class="kw">:</span><span class="at"> </span><span class="st">'{"ul li": "animate__fadeInLeft"}'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear {data-autoappear=true}</span></span>
 <span id="cb15-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 1</span>
-<span id="cb15-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is list item 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="local-auto-appear-specified" class="slide level2 center" data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}">
 <h2>Local auto-appear, specified</h2>
@@ -450,18 +457,18 @@
 <ul>
 <li>This is a list item</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified {data-autoappear="{'ul li':'animate__fadeInRight', 'h2': {'animation':'animate__fadeInDown', 'speed':'slow', 'delay':'100'}}"}</span></span>
 <span id="cb16-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is a list item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>This is a list item</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Appearance lets you use single quotes in JSON even though not valid: <code>data-autoappear="{'ul li':'animate__fadeInRight'}"</code>. This is because Reveal-Markdown only allows double quotes for its data-attributes (encoding your double quotes is also good, but that is a lot more work). This can also be set globally in the Appearance options.</p>
 </section>
 <section id="local-auto-appear-specified-and-split" class="slide level2 center" data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}">
 <h2>Local auto-appear, specified and split</h2>
 <p>And you can do the same for any animations that you would like to have on lines and words.</p>
 <h3 id="appearance">Appearance</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local auto-appear, specified and split {data-autoappear="{'h2': {'animation':'animate__fadeInDown', 'speed':'fast', 'delay':'180', 'split':'words', 'container-delay':'500ms'}, 'h3': {'animation':'animate__fadeInDown', 'split':'letters', 'delay':'80'}}"}</span></span>
 <span id="cb17-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### Appearance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">### Appearance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This can also be set globally in the Appearance options.</p>
 </section>
 <section id="content-aware-delays" class="slide level2 center" data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}">
@@ -470,7 +477,7 @@
 <div class="row">
 <p><img data-src="img/1.jpg" class="demoimg smallcircle test"> <img data-src="img/2.jpg" class="demoimg smallcircle test"> <img data-src="img/3.jpg" class="demoimg smallcircle test"> <img data-src="img/4.jpg" class="demoimg smallcircle test"> <img data-src="img/5.jpg" class="demoimg smallcircle test"></p>
 </div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Content-aware delays {data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">## Content-aware delays {data-autoappear="{'h2': 'animate__fadeInDown', 'img.test': {'animation':'animate__fadeInDown', 'container-delay':'2000'}}"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This can also be set globally in the Appearance options.</p>
 </section></section>
 <section id="more-demos" class="title-slide slide level1 center">
@@ -679,7 +686,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -706,195 +713,178 @@
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
             }
-              // target, if specified
-              link.setAttribute("target", "_blank");
-              if (link.getAttribute("rel") === null) {
-                link.setAttribute("rel", "noopener");
-              }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
